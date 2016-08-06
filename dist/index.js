@@ -7,6 +7,8 @@ exports.default = slackin;
 
 require('babel-polyfill');
 
+var wwwhisper = require('connect-wwwhisper');
+
 var _express = require('express');
 
 var _express2 = _interopRequireDefault(_express);
@@ -112,6 +114,8 @@ function slackin(_ref) {
     app.options('*', (0, _cors2.default)());
     app.use((0, _cors2.default)());
   }
+
+  app.use(wwwhisper(false));
 
   // splash page
   app.get('/', function (req, res) {
